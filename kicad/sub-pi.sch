@@ -398,6 +398,82 @@ F 3 "" H 3050 7200 50  0001 C CNN
 	1    3050 7200
 	1    0    0    -1  
 $EndComp
+Text Notes 650  4100 0    60   ~ 0
+STANDBY & RPI SWITCHED POWER\n
+Text Notes 750  6950 0    60   ~ 0
+3.3V output from\nmicrocontroller
+Text Notes 800  4550 0    60   ~ 0
+20VDC Max
+Text GLabel 7600 5200 0    51   Input ~ 0
+AUX_5V
+$Comp
+L LTC1154 U8
+U 1 1 5A652C0F
+P 8750 5700
+F 0 "U8" H 8500 6000 60  0000 C CNN
+F 1 "LTC1154" H 8850 6000 60  0000 C CNN
+F 2 "" H 8750 5700 60  0001 C CNN
+F 3 "" H 8750 5700 60  0001 C CNN
+	1    8750 5700
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R6
+U 1 1 5A652E3D
+P 7750 5500
+F 0 "R6" V 7830 5500 50  0000 C CNN
+F 1 "51K" V 7750 5500 50  0000 C CNN
+F 2 "" V 7680 5500 50  0001 C CNN
+F 3 "" H 7750 5500 50  0001 C CNN
+	1    7750 5500
+	1    0    0    -1  
+$EndComp
+Text GLabel 7450 5950 0    60   UnSpc ~ 0
+RC1
+$Comp
+L GND #PWR031
+U 1 1 5A65318B
+P 8750 6100
+F 0 "#PWR031" H 8750 5850 50  0001 C CNN
+F 1 "GND" H 8750 5950 50  0000 C CNN
+F 2 "" H 8750 6100 50  0001 C CNN
+F 3 "" H 8750 6100 50  0001 C CNN
+	1    8750 6100
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C9
+U 1 1 5A65333A
+P 9450 5400
+F 0 "C9" H 9475 5500 50  0000 L CNN
+F 1 ".1uF" H 9475 5300 50  0000 L CNN
+F 2 "" H 9488 5250 50  0001 C CNN
+F 3 "" H 9450 5400 50  0001 C CNN
+	1    9450 5400
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R8
+U 1 1 5A6533A2
+P 10150 5400
+F 0 "R8" V 10230 5400 50  0000 C CNN
+F 1 ".036" V 10150 5400 50  0000 C CNN
+F 2 "" V 10080 5400 50  0001 C CNN
+F 3 "" H 10150 5400 50  0001 C CNN
+	1    10150 5400
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R7
+U 1 1 5A6537CB
+P 9800 5650
+F 0 "R7" V 9700 5650 50  0000 C CNN
+F 1 "200K" V 9800 5650 50  0000 C CNN
+F 2 "" V 9730 5650 50  0001 C CNN
+F 3 "" H 9800 5650 50  0001 C CNN
+	1    9800 5650
+	0    1    1    0   
+$EndComp
 Wire Wire Line
 	4450 5500 6750 5500
 Wire Wire Line
@@ -577,15 +653,79 @@ Wire Notes Line
 	6850 3950 6850 7700
 Wire Notes Line
 	6850 7700 550  7700
-Text Notes 650  4100 0    60   ~ 0
-STANDBY & RPI SWITCHED POWER\n
 Connection ~ 1400 5700
 Connection ~ 1400 4950
 Connection ~ 1400 4650
 Wire Notes Line
 	550  7700 550  3950
-Text Notes 750  6950 0    60   ~ 0
-3.3V output from\nmicrocontroller
-Text Notes 800  4550 0    60   ~ 0
-20VDC Max
+Wire Wire Line
+	7600 5200 10150 5200
+Wire Wire Line
+	7750 5200 7750 5350
+Wire Wire Line
+	7750 5650 7750 5750
+Wire Wire Line
+	7450 5750 8250 5750
+Wire Wire Line
+	8250 5550 8050 5550
+Wire Wire Line
+	8050 5550 8050 5200
+Connection ~ 7750 5200
+Wire Wire Line
+	7450 5950 8050 5950
+Wire Wire Line
+	8050 5950 8050 5650
+Wire Wire Line
+	8050 5650 8250 5650
+Wire Wire Line
+	8250 5850 8250 6050
+Wire Wire Line
+	8750 6050 8750 6100
+Connection ~ 8750 6050
+Connection ~ 8050 5200
+Connection ~ 9450 5200
+Wire Wire Line
+	9200 5550 9250 5550
+Wire Wire Line
+	9250 5550 9250 5200
+Connection ~ 9250 5200
+Wire Wire Line
+	9200 5650 9650 5650
+Connection ~ 9450 5650
+Wire Wire Line
+	9450 5650 9450 5550
+Wire Wire Line
+	9450 5250 9450 5200
+Wire Wire Line
+	10150 5200 10150 5250
+Wire Wire Line
+	10150 5550 10150 5650
+Wire Wire Line
+	9950 5650 10350 5650
+Text GLabel 7450 5750 0    60   UnSpc ~ 0
+RD5
+Connection ~ 7750 5750
+Text GLabel 10350 5750 2    51   Output ~ 0
+FET_GATE
+Wire Wire Line
+	10350 5750 9200 5750
+Text GLabel 10350 5650 2    51   Output ~ 0
+FET_PWR
+Connection ~ 10150 5650
+Wire Notes Line
+	6950 4900 6950 6350
+Wire Notes Line
+	6950 6350 11100 6350
+Wire Notes Line
+	11100 6350 11100 4900
+Wire Notes Line
+	11100 4900 6950 4900
+Text Notes 7000 5050 0    60   ~ 0
+GATE PUMP FOR N-CHANNEL FETS
+Wire Wire Line
+	9200 6050 9200 5850
+Wire Wire Line
+	8250 6050 9200 6050
+Text Notes 10400 5450 0    60   ~ 0
+2.7A MAX
 $EndSCHEMATC
