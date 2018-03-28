@@ -545,7 +545,7 @@ Wire Wire Line
 Wire Wire Line
 	6600 5250 7200 5250
 Text GLabel 8450 3300 0    51   BiDi ~ 0
-SPIDOUT
+PISPIDOUT
 Text GLabel 8450 3400 0    51   BiDi ~ 0
 RD5
 Wire Wire Line
